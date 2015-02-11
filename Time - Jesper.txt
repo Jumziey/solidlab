@@ -6,3 +6,5 @@
 
 4/02 - 1h - Fixar access med jorgen (av och till under hela veckan i sma moten)
 
+10/02 - 5h - Skrev en genereric GPIB driver samt laste dokumentation till agilent multimeter och letade efter
+		dokumentation till temperatur kontrollen. 
