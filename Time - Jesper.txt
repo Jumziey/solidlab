@@ -8,3 +8,6 @@
 
 10/02 - 5h - Skrev en genereric GPIB driver samt laste dokumentation till agilent multimeter och letade efter
 		dokumentation till temperatur kontrollen. 
+22/02 - 4 - GPIB work
+23/02 - 1 -  GPIB work
+25/02 - 0.5 - more GPIB work
