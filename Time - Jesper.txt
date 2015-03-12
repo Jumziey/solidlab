@@ -8,3 +8,8 @@
 
 10/02 - 5h - Skrev en genereric GPIB driver samt laste dokumentation till agilent multimeter och letade efter
 		dokumentation till temperatur kontrollen. 
+
+22/02 - 4h - Skrev klart generic GPIB driver och testade att fa igang temperatur kontrollern utan success.
+
+5/03 - 4h - debugg och diskussion angaende temp kontrol
+6/03 - 2h - Testing utav av temp kontroller och lagger over data fran gamm datorer till nya
