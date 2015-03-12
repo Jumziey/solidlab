@@ -10,6 +10,10 @@
 		dokumentation till temperatur kontrollen. 
 
 22/02 - 4h - Skrev klart generic GPIB driver och testade att fa igang temperatur kontrollern utan success.
-
+23/02 - 1 -  GPIB work
+25/02 - 0.5 - more GPIB work
 5/03 - 4h - debugg och diskussion angaende temp kontrol
 6/03 - 2h - Testing utav av temp kontroller och lagger over data fran gamm datorer till nya
+
+
+
