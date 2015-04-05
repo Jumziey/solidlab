@@ -14,6 +14,6 @@
 25/02 - 0.5 - more GPIB work
 5/03 - 4h - debugg och diskussion angaende temp kontrol
 6/03 - 2h - Testing utav av temp kontroller och lagger over data fran gamm datorer till nya
+12/03 - 4.5h - Far igang pyvisa, debuggar lite matar problem som funkat forut. Testar nya ideer fran att ha las gammal kod far igang tva tempmatningar men kan inte satta temperatur.
 
-
-
+19/03 - 3h - Hittat manualen fatt igang testkod sa att vi kan anvanda temperatur kontrollen. Har aven borjat titta i hur kablarna ar kopplade in i de olika materialen.
