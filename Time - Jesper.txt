@@ -18,3 +18,4 @@
 
 19/03 - 3h - Hittat manualen fatt igang testkod sa att vi kan anvanda temperatur kontrollen. Har aven borjat titta i hur kablarna ar kopplade in i de olika materialen.
 05/04 - 3h - skrivit mesta utav testprogrammvaran och strukturerat kod. Har problem att prata med t-controllern via labview
+05/07 - 6h - Uvecklad test programvaran yttligare och lamnat datorn pa service.
