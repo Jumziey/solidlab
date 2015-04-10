@@ -1,0 +1,12 @@
+1. Current Reversal, Delta method or Offset-Compensated
+
+2. Non ohmic contacts. - should lead to offset voltage in circuit. SHEILD and ground.
+
+3. Device heating - One shot trigger (Maybe combine with reversal?(look at emf creation)) 
+	Remember to configurate DMM for low resistance measurements.
+	It shall be said that since we control temperature this should not be that horrible, but worth exploring.
+
+4. SUPERCONDUCTER MEASUREMENT
+	Samples critical current
+	voltage leads should mave low seebeck coefficient wrt sample
+	use current-reversal.
