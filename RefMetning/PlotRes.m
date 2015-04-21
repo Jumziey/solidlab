@@ -7,7 +7,8 @@ r2 = load('SSPRES2.DAT');
 r3 = load('SSPRES3.DAT');
 t1 = load('SSPTEMP1.DAT');
 t2 = load('SSPTEMP2.DAT');
-test = load('TestMeasurmentUP.dat')
+test = load('TestMeasurmentUP.dat');
+test2 = load('supercondTest2.txt');
 
 figure(1)
 subplot(2,2,1)
@@ -21,23 +22,28 @@ hold on
 
 %figure(2)
 subplot(2,2,2)
-    plot(t1,r1,test(:,1),test(:,4))
+    plot(t1,r1,test(:,1),test(:,4),test2(:,1),test2(:,2))
     xlabel('T [K]')
     ylabel('Resistance, [Ohm]')
-    title('R1 vs vs Temperature')
+    title('Super cond,R1 vs vs Temperature')
 
 %figure(3)
 subplot(2,2,3)
     plot(t1,r2,test(:,1),test(:,3))
     xlabel('T [K]')
     ylabel('Resistance, [Ohm]')
-    title('R2 vs Temperature')
+    title('Metal, R2 vs Temperature')
     
 %figure(4)
 subplot(2,2,4)
     plot(t1,r3,test(:,1),test(:,2))
     xlabel('T [K]')
     ylabel('Resistance, [Ohm]')
-    title('R3 vs Temperature')
+    title('Semi-cond, R3 vs Temperature')
     
+figure(2)
 
+    plot(t1,r1,test(:,1),test(:,4),test2(:,1),test2(:,2))
+    xlabel('T [K]')
+    ylabel('Resistance, [Ohm]')
+    title('Super cond,R1 vs vs Temperature')
