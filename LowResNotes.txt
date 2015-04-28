@@ -10,3 +10,11 @@
 	Samples critical current
 	voltage leads should mave low seebeck coefficient wrt sample
 	use current-reversal.
+
+
+E-book reference
+	lead resistance, thermoelectric emf, non-ohmic contocts, device heating dry circuit testing, measuring inductive devices.
+
+	Thermo electric effect
+	
+	

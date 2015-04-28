@@ -20,3 +20,8 @@
 05/04 - 3h - skrivit mesta utav testprogrammvaran och strukturerat kod. Har problem att prata med t-controllern via labview
 05/07 - 6h - Uvecklad test programvaran yttligare och lamnat datorn pa service.
 05/09 - 5h - Skrivit klart testprogramvara och genomfört forsta naiva testet, sag lovande ut men forbattringar bor goras pa hur resistansmatningarna tas. Vill forsoka gora det enkelt via bankmultimetrarnda ist for anvanda the black box.
+05/10 - 3h - borjat undersokningen om hur vi ska forbattra matningarna
+13/10 - 2h - undersokning forts
+14/10 - 4h - --||--
+
+04/27 - 8h saker som adderats  over tid plus suttit och fatt igang sista keithley forsoket... har inte riktigt kunna oversatta koden till labview... kanske ska vi kora testet med pyvisa som ar mycket enklare tills vidare?
