@@ -25,3 +25,5 @@
 14/10 - 4h - --||--
 
 04/27 - 8h saker som adderats  over tid plus suttit och fatt igang sista keithley forsoket... har inte riktigt kunna oversatta koden till labview... kanske ska vi kora testet med pyvisa som ar mycket enklare tills vidare?
+
+04/28 - 9h skrev om kod till hur vi mater med keithleyn, gjort tester
