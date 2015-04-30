@@ -28,3 +28,4 @@
 
 04/28 - 9h skrev om kod till hur vi mater med keithleyn, gjort tester
 04/29 - 6h Tester klar, skriver kod för att göra klart så att scanner kortet fungerar.
+04/30 - 1h Skrev om scanner kod fran python till labview
