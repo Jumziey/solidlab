@@ -380,6 +380,84 @@
 				<Property Name="TgtF_targetfileGUID" Type="Str">{69D8F655-08DD-4864-B4AD-6B3628EDAD9D}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">Application.exe</Property>
 			</Item>
+			<Item Name="installerV1.8" Type="Installer">
+				<Property Name="Destination[0].name" Type="Str">ConductiveSolidLabV1</Property>
+				<Property Name="Destination[0].parent" Type="Str">{3912416A-D2E5-411B-AFEE-B63654D690C0}</Property>
+				<Property Name="Destination[0].tag" Type="Str">{164A9121-AFBF-4320-9013-731C6B08D572}</Property>
+				<Property Name="Destination[0].type" Type="Str">userFolder</Property>
+				<Property Name="DestinationCount" Type="Int">1</Property>
+				<Property Name="DistPart[0].flavorID" Type="Str">DefaultFull</Property>
+				<Property Name="DistPart[0].productID" Type="Str">{BC594EC3-71AC-4EFF-9004-2DABE9C79D7A}</Property>
+				<Property Name="DistPart[0].productName" Type="Str">NI LabVIEW Runtime 2014 SP1</Property>
+				<Property Name="DistPart[0].SoftDep[0].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[0].productName" Type="Str">NI LabVIEW Runtime 2014 SP1 Non-English Support.</Property>
+				<Property Name="DistPart[0].SoftDep[0].upgradeCode" Type="Str">{CAC8FA79-6D3D-4263-BB7B-1A706EF87C08}</Property>
+				<Property Name="DistPart[0].SoftDep[1].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[1].productName" Type="Str">NI ActiveX Container</Property>
+				<Property Name="DistPart[0].SoftDep[1].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
+				<Property Name="DistPart[0].SoftDep[10].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[10].productName" Type="Str">NI VC2010MSMs</Property>
+				<Property Name="DistPart[0].SoftDep[10].upgradeCode" Type="Str">{EFBA6F9E-F934-4BD7-AC51-60CCA480489C}</Property>
+				<Property Name="DistPart[0].SoftDep[11].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[11].productName" Type="Str">NI mDNS Responder 14.0</Property>
+				<Property Name="DistPart[0].SoftDep[11].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
+				<Property Name="DistPart[0].SoftDep[12].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[12].productName" Type="Str">NI Deployment Framework 2014</Property>
+				<Property Name="DistPart[0].SoftDep[12].upgradeCode" Type="Str">{838942E4-B73C-492E-81A3-AA1E291FD0DC}</Property>
+				<Property Name="DistPart[0].SoftDep[13].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[13].productName" Type="Str">NI Error Reporting 2014</Property>
+				<Property Name="DistPart[0].SoftDep[13].upgradeCode" Type="Str">{42E818C6-2B08-4DE7-BD91-B0FD704C119A}</Property>
+				<Property Name="DistPart[0].SoftDep[2].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[2].productName" Type="Str">NI Service Locator 14.0</Property>
+				<Property Name="DistPart[0].SoftDep[2].upgradeCode" Type="Str">{B235B862-6A92-4A04-A8B2-6D71F777DE67}</Property>
+				<Property Name="DistPart[0].SoftDep[3].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[3].productName" Type="Str">NI System Web Server 14.5</Property>
+				<Property Name="DistPart[0].SoftDep[3].upgradeCode" Type="Str">{FCF64B73-B7D4-4971-8F11-24BAF7CC3E6C}</Property>
+				<Property Name="DistPart[0].SoftDep[4].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[4].productName" Type="Str">Math Kernel Libraries</Property>
+				<Property Name="DistPart[0].SoftDep[4].upgradeCode" Type="Str">{3BDD0408-2F90-4B42-9777-5ED1D4BE67A8}</Property>
+				<Property Name="DistPart[0].SoftDep[5].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[5].productName" Type="Str">NI Logos 14.0</Property>
+				<Property Name="DistPart[0].SoftDep[5].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
+				<Property Name="DistPart[0].SoftDep[6].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[6].productName" Type="Str">NI TDM Streaming 14.0</Property>
+				<Property Name="DistPart[0].SoftDep[6].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
+				<Property Name="DistPart[0].SoftDep[7].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[7].productName" Type="Str">NI LabVIEW Web Server 2014</Property>
+				<Property Name="DistPart[0].SoftDep[7].upgradeCode" Type="Str">{4A8BDBBB-DA1C-45C9-8563-74C034FBD357}</Property>
+				<Property Name="DistPart[0].SoftDep[8].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[8].productName" Type="Str">NI LabVIEW Real-Time NBFifo 2014</Property>
+				<Property Name="DistPart[0].SoftDep[8].upgradeCode" Type="Str">{4372F3E3-5935-4012-93AB-B6710CE24920}</Property>
+				<Property Name="DistPart[0].SoftDep[9].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[0].SoftDep[9].productName" Type="Str">NI VC2008MSMs</Property>
+				<Property Name="DistPart[0].SoftDep[9].upgradeCode" Type="Str">{FDA3F8BB-BAA9-45D7-8DC7-22E1F5C76315}</Property>
+				<Property Name="DistPart[0].SoftDepCount" Type="Int">14</Property>
+				<Property Name="DistPart[0].upgradeCode" Type="Str">{4722F14B-8434-468D-840D-2B0CD8CBD5EA}</Property>
+				<Property Name="DistPartCount" Type="Int">1</Property>
+				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
+				<Property Name="INST_buildLocation" Type="Path">../builds/ConductiveSolidLabV1/installerV1.8</Property>
+				<Property Name="INST_buildLocation.type" Type="Str">relativeToCommon</Property>
+				<Property Name="INST_buildSpecName" Type="Str">installerV1.8</Property>
+				<Property Name="INST_defaultDir" Type="Str">{164A9121-AFBF-4320-9013-731C6B08D572}</Property>
+				<Property Name="INST_productName" Type="Str">ConductiveSolidLabV1</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.1</Property>
+				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
+				<Property Name="InstSpecVersion" Type="Str">14018008</Property>
+				<Property Name="MSI_arpCompany" Type="Str">Jespers Awesomeness o CO</Property>
+				<Property Name="MSI_autoselectDrivers" Type="Bool">true</Property>
+				<Property Name="MSI_distID" Type="Str">{DBCF7AC3-7F7A-4FE2-BF38-CC63AA4E9071}</Property>
+				<Property Name="MSI_osCheck" Type="Int">0</Property>
+				<Property Name="MSI_upgradeCode" Type="Str">{64337B6D-EFDC-41C0-93D7-B4BF5B129998}</Property>
+				<Property Name="RegDest[0].dirName" Type="Str">Software</Property>
+				<Property Name="RegDest[0].dirTag" Type="Str">{DDFAFC8B-E728-4AC8-96DE-B920EBB97A86}</Property>
+				<Property Name="RegDest[0].parentTag" Type="Str">2</Property>
+				<Property Name="RegDestCount" Type="Int">1</Property>
+				<Property Name="Source[0].dest" Type="Str">{164A9121-AFBF-4320-9013-731C6B08D572}</Property>
+				<Property Name="Source[0].name" Type="Str">ConductiveSolidLabV1.vi</Property>
+				<Property Name="Source[0].tag" Type="Ref">/My Computer/ConductiveSolidLabV1.vi</Property>
+				<Property Name="Source[0].type" Type="Str">File</Property>
+				<Property Name="SourceCount" Type="Int">1</Property>
+			</Item>
 		</Item>
 	</Item>
 </Project>
