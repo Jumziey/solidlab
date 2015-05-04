@@ -27,3 +27,7 @@
 04/27 - 8h saker som adderats  over tid plus suttit och fatt igang sista keithley forsoket... har inte riktigt kunna oversatta koden till labview... kanske ska vi kora testet med pyvisa som ar mycket enklare tills vidare?
 
 04/28 - 9h skrev om kod till hur vi mater med keithleyn, gjort tester
+04/29 - 6h Tester klar, skriver kod för att göra klart så att scanner kortet fungerar.
+04/30 - 1h Skrev om scanner kod fran python till labview
+05/01 - 2h Kommenterat och omstrukturerat labview kod, endast errer checks om temp controller och keithleyn ar igang innan man borjar mata kvar. 
+05/03 - 3h Gjorde ett live test av koden som skulle upp till forsta labbgruppen pa mandag. Allting gick smidigt forutom att data sparades inte ned, doh! Har fixat problem dock, var relaterad till hur labview fungerar da man kompilerar det till en .exe fil. Har dessutom rengjort lite runt labbordet.
