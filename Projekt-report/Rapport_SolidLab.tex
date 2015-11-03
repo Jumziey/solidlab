@@ -1,0 +1,224 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+%\usepackage[prefix]{nomencl}
+%\usepackage{makeidx}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+%\usepackage{multicol}
+%\usepackage{url}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+%\usepackage{cleveref}
+
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{subfig}
+\renewcommand{\contentsname}{Innehållsförteckning}
+%\hypersetup{linkcolor=blue, colorlinks=true}
+
+
+%\makenomenclature
+
+\let\oldAuthor\author
+\renewcommand{\author}[1]{\newcommand{\myAuthor}{#1}\oldAuthor{#1}}
+\renewcommand{\deg}{\ensuremath{^{\circ}}\xspace}
+
+\begin{document}
+
+%---------------------------------------------------------
+%Fill in:
+% Redaktör
+%---------------------------------------------------------
+
+%---------------------------------------------------------
+%Fill in:
+%1. Redaktör(er)
+%3. Organisation/Företag/Institution...
+%4. Projektnamn
+%5. Projektgrupp, med email eller liknande kontakt uppgift
+%6. Granskare av dokument
+%7. Datum som graskningen skedde
+%8. Godkännare av dokumentet
+%9. Datum för godkännande
+%---------------------------------------------------------
+\title{Projektplan}
+\author{Tobias Nilsson }
+\date{} %<-- LEAVE EMPTY! 
+\newcommand{\organisation}[0] {\small Institutionen för Fysik \\ Umeå Universitet}
+\newcommand{\projektnamn}{\small Upgrade: Electrical Conductivity}
+\newcommand{\projektgrupp}{ Tobias Nilsson, toni0042 \\
+							 Jesper Vesterberg, jeve0100}
+\newcommand{\granskare}{Jesper Vesterberg}
+\newcommand{\granskatdatum}{GRANSKATTDATUM}
+\newcommand{\godkannare}{Krister Wiklund}
+\newcommand{\godkantdatum}{GODKÄNTDATUM}
+
+
+\begin{titlepage}
+\maketitle 
+\thispagestyle{fancy}
+\headheight 35pt 
+\lhead{\organisation}
+\chead{\projektnamn}
+\rhead{\small\today}
+\cfoot{\projektgrupp}
+
+\begin{center}
+Version 1.0
+\end{center}
+
+\vspace{80mm}
+\begin{center}
+  {\large Status:}\\[1.5ex]
+  \begin{tabular}{|*{3}{p{40mm}|}}
+    \hline
+    Reviewed & \granskare & \granskatdatum \\
+    \hline
+    Approved & \godkannare & \godkantdatum \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\end{titlepage}
+
+
+
+\pagestyle{fancy}
+\headheight 35pt 
+\pagenumbering{roman}
+\rhead{\small\today \\ }
+\chead{\projektnamn}
+\lhead{\organisation \\ }
+\lfoot{Projektarbete inom \\teknisk fysik B, 3.0 HP \\ 5FY070}
+\cfoot{\thepage}
+\rfoot{\projektgrupp}
+\begin{center}
+
+\section*{\center Projektidentitet}
+
+\bigskip
+\begin{tabular}{|p{35mm}|p{30mm}|p{20mm}|p{45mm}|}
+\hline
+\textbf{Name} & \textbf{Ansvar} & \textbf{Telephone} & \textbf{e-mail}\\
+\hline
+Tobias Nilsson & Documents &  & toni0042@student.umu.se\\
+\hline
+Jesper Vesterberg & Programmer &  & jeve0010@student.umu.se\\
+\hline
+\end{tabular}
+
+\bigskip
+\textbf{Client}: Institutionen för Fysik, Umeå universitet, \\
+Linnaeus väg 24,\\
+901 87\\
+Umeå.
+
+\textbf{Contact}: Krister Wiklund, krister.wiklund@umu.se.
+\end{center}
+\newpage
+
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\subsection{Introduction}
+The laboratory \emph{Electrical conductivity} in the courses \emph{Solid State Physics} was upgraded from an old set-up using; a cryo system, with heat controller; a series of power supplies; a black box with measurement circuits; a bench multimeter and an ancient  computer system running on MS-DOS. The upgrades consisted of removing the external power supplies, the black box and exchanging the computer for a newer laptop and the user interface, \emph{Elledn}, was remade in Labview.
+
+The purpose of the the laboratory is to investigate how the electrical conductivity of different materials behaves in the temperature region $10-300$ $K$. The materials are a semi-conductor, InSb, a metal, Pt, and a super conductor, $YBa_2Cu_3O_7$.
+
+\section{The set-up}
+Equipment consist of:
+\begin{itemize}
+\item Cryogenic system:
+\begin{itemize}
+\item Cooling chamber
+\item Coarse vacuum pump
+\item turbo molecular pump
+\item Cryogenic system(compressor w. cooling system): HC-2, APD Cryogenics Inc.
+\end{itemize}
+\item Controllers to cryogenic system: 
+\begin{itemize}
+\item Turbotronic NT10
+\item Thermovac TM20
+\item Scientific Instruments Inc. 9620-1 Silicon Diode
+\end{itemize} 
+\item Bench Multimeter: Keithley 2001 Multimeter
+\item Computer with Labview.
+\end{itemize}
+
+The materials are placed in the cooling chamber and the two vacuum pumps reduces the pressure to below $10^{-5}$ Pascal. This reduces the amount of heat that needs to be removed to change the chambers temperature.
+
+$\approx 10$ $K$ is the lowest temperature for the cooling part of the cryogenic equipment, which removes heat at a constant pace. An external heater is used to alter the temperature by adding heat to the system. This heater is controlled by \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface. 
+
+The controller determines the heating with the aid of en equation consisting of an integral and a differential term. To improve the performance and responsiveness of the cryogenic equipment in various ranges, these terms can be changed by the user. For more information see the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
+
+To determine the resistivity of the samples, each sample is connected to a 4 sense wire system. These sense wires are connected to a Keithley 2001 Multimeter through a switching card at the back. The multimeter is also equipped with a GIPB-interface, enabling computer controlled measurements. 
+
+The connections from the samples and an additional temperature diode, goes first a through a round 19 pin contact to an 25 pin d-sub connector. See table \ref{tab:PinNumbers} for pin layout on the cables.
+
+\begin{table}
+
+  \caption{\emph{Pin layout for connection cables between cooling chamber and multimeter.}}
+  \label{tab:PinNumbers}
+  \begin{tabular}{c|c|c c c}
+  25-pin D-sub & round 19-pin connector & Function & & \\
+  \hline
+  1  & A & Superconductor    & Current & + \\
+  2  & B & ''                & ''      & - \\
+  3  & C & ''                & Voltage & + \\
+  4  & D & ''                & ''      & - \\
+  5  & E & Pt-100            & Current & + \\
+  6  & F & ''                & ''      & - \\
+  7  & G & ''                & Voltage & + \\
+  8  & H & ''                & ''      & - \\
+  9  & J & InSb-plate        & Current & + \\
+  10 & K & ''                & ''      & - \\
+  11 & L & ''                & Voltage & + \\
+  12 & M & ''                & ''      & - \\
+  13 & N & Temperature diode & Current & + \\
+  14 & P & ''                & ''      & - \\
+  15 & R & ''                & Voltage & + \\
+  16 & S & ''                & ''      & - \\   
+  17 & T & free              &         &  \\
+  18 & U & free              &         &  \\
+  25 & V & Shield            &         &  \\ 
+  \end{tabular}
+\end{table} 
+
+\section{Software}
+
+The software, ResSolidLabV1, is written in Labview and it can send the desired temperature to the 
+
+\section{•}
+
+
+
+
+
+%\begin{appendix}
+
+
+%Here you can put additional data of importance Labview or Matlab codes,
+%additional equations and derivations etc.
+%Do not add long tables of raw data. 
+%
+%For programming code like Matlab you need to use a font where 
+%all letters are equally wide. Use the verbatim environment.
+%
+%\begin{verbatim}
+%	Paste code here! 
+%\end{verbatim}
+
+%\section{Appendix section 2} 
+
+%\end{appendix}
+
+\end{document}
