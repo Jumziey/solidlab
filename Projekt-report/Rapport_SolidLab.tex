@@ -49,7 +49,7 @@
 %8. Godkännare av dokumentet
 %9. Datum för godkännande
 %---------------------------------------------------------
-\title{Projektplan}
+\title{Project report}
 \author{Tobias Nilsson }
 \date{} %<-- LEAVE EMPTY! 
 \newcommand{\organisation}[0] {\small Institutionen för Fysik \\ Umeå Universitet}
@@ -102,7 +102,7 @@ Version 1.0
 \rfoot{\projektgrupp}
 \begin{center}
 
-\section*{\center Projektidentitet}
+\section*{\center Project identity}
 
 \bigskip
 \begin{tabular}{|p{35mm}|p{30mm}|p{20mm}|p{45mm}|}
@@ -156,7 +156,7 @@ Equipment consist of:
 
 The materials are placed in the cooling chamber and the two vacuum pumps reduces the pressure to below $10^{-5}$ Pascal. This reduces the amount of heat that needs to be removed to change the chambers temperature.
 
-$\approx 10$ $K$ is the lowest temperature for the cooling part of the cryogenic equipment, which removes heat at a constant pace. An external heater is used to alter the temperature by adding heat to the system. This heater is controlled by \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface. 
+$\approx 10$ $K$ is the lowest temperature for the cooling part of the cryogenic equipment. An external heater is used to alter the temperature by adding heat to the system. This heater is controlled by \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface. 
 
 The controller determines the heating with the aid of en equation consisting of an integral and a differential term. To improve the performance and responsiveness of the cryogenic equipment in various ranges, these terms can be changed by the user. For more information see the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
 
@@ -165,9 +165,9 @@ To determine the resistivity of the samples, each sample is connected to a 4 sen
 The connections from the samples and an additional temperature diode, goes first a through a round 19 pin contact to an 25 pin d-sub connector. See table \ref{tab:PinNumbers} for pin layout on the cables.
 
 \begin{table}
-
+	\label{tab:PinNumbers}
   \caption{\emph{Pin layout for connection cables between cooling chamber and multimeter.}}
-  \label{tab:PinNumbers}
+  
   \begin{tabular}{c|c|c c c}
   25-pin D-sub & round 19-pin connector & Function & & \\
   \hline
@@ -195,7 +195,14 @@ The connections from the samples and an additional temperature diode, goes first
 
 \section{Software}
 
-The software, ResSolidLabV1, is written in Labview and it can send the desired temperature to the 
+The software, ResSolidLabV1, is written in Labview and it   has a reduced control of the measurement system. For simplicity it only change the temperature and initiate measurements. All other changes in the measurement system, has to be done outside the program. Such as changing the different coefficients in the equation that controls the heating element. 
+
+However the bench-multimeter's settings are made automatically by ResSolidLabV1, these settings are about how the measurements are performed and the change these settings, the parts of the program needs to be rewritten.
+
+JESPER FYLL I HÄR VILKA SAKER SOM ÄR "HÅRDKODADE" I PROGRAMMET.
+
+The  bench-multimeter can not truly measure zero resistance with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero, this introduces a potential
+problem. The cables used for the resistance measurements needs to be connected correctly for the system to measure correctly.
 
 \section{•}
 
