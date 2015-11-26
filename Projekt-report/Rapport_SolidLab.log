@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.12)  18 NOV 2015 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.12)  26 NOV 2015 16:57
 entering extended mode
 **Rapport_SolidLab.tex
 (Rapport_SolidLab.tex
@@ -802,14 +802,12 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2]
-Overfull \hbox (19.37909pt too wide) in paragraph at lines 200--201
+Overfull \hbox (19.37909pt too wide) in paragraph at lines 202--203
 []\OT1/cmr/m/n/12 However the bench-multimeter's set-tings are made au-to-mat-i
 -cally by ResSolid-
  []
 
-LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <17.28> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 207.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 242.
 
 Package Fancyhdr Warning: \headheight is too small (35.0pt): 
  Make it at least 38.8842pt.
@@ -817,24 +815,30 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 242.
  (Rapport_SolidLab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 231.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 231.
-Package rerunfilecheck Info: File `Rapport_SolidLab.out' has not changed.
-(rerunfilecheck)             Checksum: 86C22A38C084A7E411DAF4DB0896B312;183.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 242.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 242.
 
+
+Package rerunfilecheck Warning: File `Rapport_SolidLab.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Rapport_SolidLab.out':
+(rerunfilecheck)             Before: 86C22A38C084A7E411DAF4DB0896B312;183
+(rerunfilecheck)             After:  79A1A6338563621EDF3429635B157514;325.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 231.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 242.
  ) 
 Here is how much of TeX's memory you used:
  10306 strings out of 493673
- 151903 string characters out of 3141526
+ 151895 string characters out of 3141526
  261635 words of memory out of 3000000
- 13470 multiletter control sequences out of 15000+200000
- 13560 words of font info for 52 fonts, out of 3000000 for 9000
+ 13468 multiletter control sequences out of 15000+200000
+ 13305 words of font info for 51 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  42i,13n,43p,526b,383s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
@@ -847,9 +851,9 @@ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
 s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files 
 (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Rapport_SolidLab.pdf (6 pages, 133623 bytes).
+Output written on Rapport_SolidLab.pdf (6 pages, 136316 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
