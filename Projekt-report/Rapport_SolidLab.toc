@@ -2,6 +2,8 @@
 \contentsline {subsection}{\numberline {0.1}Introduction}{1}{subsection.0.1}
 \contentsline {section}{\numberline {1}The set-up}{1}{section.1}
 \contentsline {section}{\numberline {2}Software}{3}{section.2}
-\contentsline {section}{\numberline {3}Hardware}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}Keithley 2001 Multimeter}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Heater control}{3}{subsection.3.2}
+\contentsline {section}{\numberline {3}Hardware}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Keithley 2001 Multimeter}{4}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}GPIB-Commands: Multimeter}{4}{subsubsection.3.1.1}
+\contentsline {subsection}{\numberline {3.2}Heater control: \\ Scientific Instruments Inc. 9620-1 Silicon Diode}{4}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}GPIB-Commands: Heater}{4}{subsubsection.3.2.1}

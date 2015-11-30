@@ -166,7 +166,7 @@ The connections from the samples and an additional temperature diode, goes first
 
 \begin{table}
 	\label{tab:PinNumbers}
-  \caption{\emph{Pin layout for connection cables between cooling chamber and multimeter. Ports 19-24 on the 25-pin Dsub connector are  unused.}}
+  \caption{\emph{Pin layout for connection cables between cooling chamber and multimeter. Ports 19-24 on the 25-pin Dsub connector are  unused.}} 
   
   \begin{tabular}{c|c|c c c}
   25-pin D-sub & round 19-pin connector & Function & & \\
@@ -175,11 +175,11 @@ The connections from the samples and an additional temperature diode, goes first
   2  & B & ''                & ''      & - \\
   3  & C & ''                & Voltage & + \\
   4  & D & ''                & ''      & - \\
-  5  & E & Pt-100            & Current & + \\
+  5  & E & Conductor, Pt-100            & Current & + \\
   6  & F & ''                & ''      & - \\
   7  & G & ''                & Voltage & + \\
   8  & H & ''                & ''      & - \\
-  9  & J & InSb-plate        & Current & + \\
+  9  & J & Semi-conductor, InSb-plate        & Current & + \\
   10 & K & ''                & ''      & - \\
   11 & L & ''                & Voltage & + \\
   12 & M & ''                & ''      & - \\
@@ -192,6 +192,31 @@ The connections from the samples and an additional temperature diode, goes first
   25 & V & Shield            &         &  \\ 
   \end{tabular}
 \end{table} 
+
+
+\begin{table}
+	\center
+	\label{tab:ScanCard}
+	\caption{\emph{Pin layout for the Scan card, inside the Keithley Multimeter.}} 
+	\begin{tabular}{l|l|l}
+		\#  & +(Red) & -(Black) \\
+		1  & Superconductor, Potential +	& Superconductor, Potential - \\
+		2  & Semi-conductor, Potential +		& Semi-conductor, Potential - \\
+		3  & Conductor, Potential +			& Conductor, Potential - \\
+		4  & 	N/A	& N/A \\
+		5  & 	N/A	& N/A \\
+		6  & Superconductor, Current +		& Superconductor, Current - \\
+		7  & Semi-conductor, Current +		& Semi-conductor, Current - \\
+		8  & Conductor, Current +			& Conductor, Current - \\
+		9  & 	N/A	& N/A \\
+		10 & 	N/A	& N/A \\
+	\end{tabular}
+\end{table}
+
+The samples are connected to the Keithley Multimeter through a custom scanning card. This card enables the use of the built-in switching capabilities and it has two rows of pins, a red (positive) and a black (negative). When using this home made card for 4-wire measurements it will can be important to know that the first five pins (pins 1-5) are used for the potential wires and that the  last five (pins 6-10) are used for the current wires.
+
+The first potential pins are grouped with the first current pins, e.g. pins 1 and 6 are connected two sample 1 and pins 2 and 7 are connected to sample 2 and so on.
+ 
 
 \section{Software}
 
@@ -213,10 +238,14 @@ problem. The cables used for the resistance measurements needs to be connected c
 
 VILKA KOMMANDON FINNS DET, VILKA PORTAR PÅ DET HEMMA GJORDA KORTET HÖR IHOP.
 
-\subsection{Heater control}
+\subsubsection{GPIB-Commands: Multimeter}
+
+\subsection{Heater control: \\ Scientific Instruments Inc. 9620-1 Silicon Diode}
 Scientific Instruments Inc. 9620-1 Silicon Diode is the controller that sets the heat, as previous stated it governed by an equation containing a differential and an integral term. These terms can be set by the user using the controller's front panel but also by sending commands over the GPIB-interface.
 
-Though the current settings seems to work just fine for the current usage so there are no reason the temper with them.
+Though the current settings seems to work just fine for the present usage so there are no reason the temper with these settings.
+
+\subsubsection{GPIB-Commands: Heater}
 
 
 
