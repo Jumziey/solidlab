@@ -54,8 +54,8 @@
 \date{} %<-- LEAVE EMPTY! 
 \newcommand{\organisation}[0] {\small Institutionen för Fysik \\ Umeå Universitet}
 \newcommand{\projektnamn}{\small Upgrade: Electrical Conductivity}
-\newcommand{\projektgrupp}{ Tobias Nilsson, toni0042 \\
-							 Jesper Vesterberg, jeve0100}
+\newcommand{\projektgrupp}{ Tobias Nilsson, toni0042@student.umu.se \\
+							 Jesper Vesterberg, jeve0100@student.umu.se}
 \newcommand{\granskare}{Jesper Vesterberg}
 \newcommand{\granskatdatum}{GRANSKATTDATUM}
 \newcommand{\godkannare}{Krister Wiklund}
@@ -130,7 +130,7 @@ Umeå.
 \pagenumbering{arabic}
 
 \subsection{Introduction}
-The laboratory \emph{Electrical conductivity} in the courses \emph{Solid State Physics} was upgraded from an old set-up using; a cryo system, with heat controller; a series of power supplies; a black box with measurement circuits; a bench multimeter and an ancient  computer system running on MS-DOS. The upgrades consisted of removing the external power supplies, the black box and exchanging the computer for a newer laptop and the user interface, \emph{Elledn}, was remade in Labview.
+The lab \emph{Electrical conductivity} in the courses \emph{Solid State Physics} was upgraded from an old set-up which consisted of; a cryo system, with heat controller; a series of power supplies; a black box with measurement circuits, that converted resistance to voltage; a bench multimeter and an ancient  computer system running on MS-DOS. The upgrades consisted of removing the external power supplies, the black box and exchanging the computer for a newer laptop and the user interface, \emph{Elledn}, was rewritten in Labview.
 
 The purpose of the the laboratory is to investigate how the electrical conductivity of different materials behaves in the temperature region $10-300$ $K$. The materials are a semi-conductor, InSb, a metal, Pt, and a super conductor, $YBa_2Cu_3O_7$.
 
@@ -154,13 +154,13 @@ Equipment consist of:
 \item Computer with Labview.
 \end{itemize}
 
-The materials are placed in the cooling chamber and the two vacuum pumps reduces the pressure to below $10^{-5}$ Pascal. This reduces the amount of heat that needs to be removed to change the chambers temperature.
+The materials are placed in the cooling chamber and the two vacuum pumps reduces the pressure to below $10^{-5}$ Pascal. This reduces the amount of heat that needs to be removed to change the chambers temperature, remember the ideal gas law $PV=NkT$. The actual cooling process is a closed helium-gas cycle following the Gifford-McMahon principle.
 
-$\approx 10$ $K$ is the lowest temperature for the cooling part of the cryogenic equipment. An external heater is used to alter the temperature by adding heat to the system. This heater is controlled by \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface. 
+The samples are continuously cooled by the equipment to $\approx 10$ $K$ if no additional heat is added. An external heater is used to alter the temperature by adding heat to the system. This heater is controlled by the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface and its front panel. 
 
 The controller determines the heating with the aid of en equation consisting of an integral and a differential term. To improve the performance and responsiveness of the cryogenic equipment in various ranges, these terms can be changed by the user. For more information see the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
 
-To determine the resistivity of the samples, each sample is connected to a 4 sense wire system. These sense wires are connected to a Keithley 2001 Multimeter through a switching card at the back. The multimeter is also equipped with a GPIB-interface, enabling computer controlled measurements. 
+To determine the resistivity of the samples, each sample is connected to a 4 sense wire system. These sense wires are connected to a Keithley 2001 Multimeter through a switching card at the back of the multimeter. The multimeter is also equipped with a GPIB-interface, enabling computer controlled measurements. 
 
 The connections from the samples and an additional temperature diode, goes first a through a round 19 pin contact to an 25 pin d-sub connector. See table \ref{tab:PinNumbers} for pin layout on the cables.
 
@@ -215,21 +215,20 @@ The connections from the samples and an additional temperature diode, goes first
 
 The samples are connected to the Keithley Multimeter through a custom scanning card. This card enables the use of the built-in switching capabilities and it has two rows of pins, a red (positive) and a black (negative). When using this home made card for 4-wire measurements it will can be important to know that the first five pins (pins 1-5) are used for the potential wires and that the  last five (pins 6-10) are used for the current wires.
 
-The first potential pins are grouped with the first current pins, e.g. pins 1 and 6 are connected two sample 1 and pins 2 and 7 are connected to sample 2 and so on.
+The first potential pins are grouped with the first current pins, e.g. pins 1 and 6 are connected two sample 1 and pins 2 and 7 are connected to sample 2 and so on. See Table \ref{tab:ScanCard} for details about how the samples currently are connected to the scanning card.
  
 
 \section{Software}
 
 This section describes shortly how the software work, for a guide on how to operate the software see the laboratory instructions for electrical conductivity. 
 
-The software, ResSolidLabV1, is written in Labview and it   has a reduced control of the measurement system. For simplicity it only change the temperature and initiate measurements. All other changes in the measurement system, has to be done outside the program. Such as changing the different coefficients in the equation that controls the heating element, which are done in the heating element's controller. 
+The software, ResSolidLabV1, is written in Labview and it   has a reduced control of the measurement system. For simplicity it only change the temperature and initiate measurements. All other changes in the measurement system, has to be done outside the user interface. Such as changing the different coefficients in the equation that controls the heating element, which are done in the heating element's controller. 
 
 However the bench-multimeter's settings are made automatically by ResSolidLabV1, these settings are about how the measurements are performed and the change these settings, the parts of the program needs to be rewritten.
 
 JESPER! FYLL I HÄR VILKA SAKER SOM ÄR "HÅRDKODADE" I PROGRAMMET OCH HUR MAN ÄNDRAR PÅ DEM!!!!!!!!!!!!!!
 
-The  bench-multimeter can not truly measure zero resistance with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero, this introduces a potential
-problem. The cables used for the resistance measurements needs to be connected correctly for the system to measure correctly.
+The  bench-multimeter can not truly measure zero resistance even with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero, this introduces a potential problem. Switching place of either the current or resistance cables will change the sign of the measure resistance.
 
 
 \section{Hardware}
