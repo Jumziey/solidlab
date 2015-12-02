@@ -1,8 +1,8 @@
-\BOOKMARK [2][-]{subsection.0.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1}{The set-up}{}% 2
-\BOOKMARK [1][-]{section.2}{Software}{}% 3
-\BOOKMARK [1][-]{section.3}{Hardware}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Keithley 2001 Multimeter}{section.3}% 5
-\BOOKMARK [3][-]{subsubsection.3.1.1}{GPIB-Commands: Multimeter}{subsection.3.1}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Heater control: \040Scientific Instruments Inc. 9620-1 Silicon Diode}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.2.1}{GPIB-Commands: Heater}{subsection.3.2}% 8
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The set-up}{}% 2
+\BOOKMARK [1][-]{section.3}{Software}{}% 3
+\BOOKMARK [1][-]{section.4}{Hardware}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Keithley 2001 Multimeter}{section.4}% 5
+\BOOKMARK [3][-]{subsubsection.4.1.1}{GPIB-Commands and related: Multimeter}{subsection.4.1}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Heater control: \040Scientific Instruments Inc. 9620-1 Silicon Diode}{section.4}% 7
+\BOOKMARK [3][-]{subsubsection.4.2.1}{GPIB-Commands and related: Heater}{subsection.4.2}% 8
