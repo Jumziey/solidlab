@@ -130,9 +130,11 @@ Umeå.
 \pagenumbering{arabic}
 
 \section{Introduction}
-The lab \emph{Electrical conductivity} in the courses \emph{Solid State Physics} was upgraded from an old set-up which consisted of; a cryo system, with heat controller; a series of power supplies; a black box with measurement circuits, that converted resistance to voltage; a bench multimeter and an ancient  computer system running on MS-DOS. The upgrades consisted of removing the external power supplies, the black box and exchanging the computer for a newer laptop and the user interface, \emph{Elledn}, was rewritten in Labview.
+The purpose of the lab \emph{Electrical conductivity} in the courses \emph{Solid State Physics} is to investigate how the electrical conductivity of different materials behaves in the temperature region $10-300$ $K$. The materials in question are a semi-conductor, InSb, a metal, Pt, and a super conductor, $YBa_2Cu_3O_7$.
 
-The purpose of the the laboratory is to investigate how the electrical conductivity of different materials behaves in the temperature region $10-300$ $K$. The materials are a semi-conductor, InSb, a metal, Pt, and a super conductor, $YBa_2Cu_3O_7$.
+The aim of the project was to upgrade the the laboratory equipment, which consisted of; a cryo system, with heat controller; a series of power supplies; a black box with measurement circuits, that converted resistance to voltage; a bench multimeter and an ancient  computer system running on MS-DOS. The upgrades consisted of removing the external power supplies, the black box, exchanging the computer for a newer laptop and the user interface, \emph{Elledn}, was rewritten in Labview.
+
+
 
 \section{The set-up}
 Equipment consist of:
@@ -141,7 +143,7 @@ Equipment consist of:
 \begin{itemize}
 \item Cooling chamber
 \item Coarse vacuum pump
-\item turbo molecular pump
+\item Turbo molecular pump
 \item Cryogenic system(compressor w. cooling system): HC-2, APD Cryogenics Inc.
 \end{itemize}
 \item Controllers to cryogenic system: 
@@ -154,21 +156,21 @@ Equipment consist of:
 \item Computer with Labview.
 \end{itemize}
 
-The materials are placed in the cooling chamber and the two vacuum pumps reduces the pressure to below $10^{-5}$ Pascal. This reduces the amount of heat that needs to be removed to change the chambers temperature, remember the ideal gas law $PV=NkT$. The actual cooling process is a closed helium-gas cycle that follows the Gifford-McMahon principle.
+The materials are placed in the cooling chamber and the two vacuum pumps reduces the pressure to below $10^{-5}$ Pascal. This reduces the amount of heat that needs to be removed to change the chambers temperature. Remember the ideal gas law $PV=NkT$. The actual cooling process is a closed helium-gas cycle that follows the Gifford-McMahon principle.
 
-The samples are continuously cooled by the equipment to $\approx 10$ $K$ if no additional heat is added. An external heater is used to alter the temperature by adding heat to the system. This heater is controlled by the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface and its front panel. 
+The samples are continuously cooled by the equipment to $\approx 10$ $K$ if no additional heat is added. Thus to change the temperature additional heat is added to the system by an external heater. This heater is controlled by the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface and its front panel. 
 
-The controller determines the heating with the aid of the PID equation consisting of three terms, a \textbf{P}roportional, an \textbf{I}ntegral and a \textbf{D}ifferential. To improve the performance and responsiveness of the cryogenic equipment in various temperature ranges, the coefficients for these terms can be changed by the user. For more information see the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
+The controller determines the heating with the aid of the PID equation, consisting of a \textbf{P}roportional, an \textbf{I}ntegral and a \textbf{D}ifferential term. To improve the performance and responsiveness of the cryogenic equipment in various temperature ranges, the coefficients for these terms can be changed by the user. For more information see equation \eqref{eq:PID} and the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
 
 To determine the resistivity of the samples, each sample is connected to a 4 sense wire system. These sense wires are connected to a Keithley 2001 Multimeter through a switching card at the back of the multimeter. The multimeter is also equipped with a GPIB-interface, enabling computer controlled measurements. 
 
 The connections from the samples and an additional temperature diode, goes first a through a round 19 pin contact to an 25 pin d-sub connector. See table \ref{tab:PinNumbers} for pin layout on the cables.
 
-\begin{table}
+\begin{table}[H]
 	
   \caption{\emph{Pin layout for connection cables between cooling chamber and multimeter. Ports 19-24 on the 25-pin Dsub connector are  unused.}} 
   
-  \begin{tabular}{c|c|c c c}[H]
+  \begin{tabular}{c|c|c c c}
   \label{tab:PinNumbers}
   25-pin D-sub & round 19-pin connector & Function & & \\
   \hline
@@ -198,7 +200,7 @@ The connections from the samples and an additional temperature diode, goes first
 
 
 
-The samples are connected to the Keithley Multimeter through a custom scanning card. This card enables the use of the built-in switching capabilities and it has two rows of pins, a red (positive) and a black (negative). When using this home made card for 4-wire measurements it will can be important to know that the first five pins (pins 1-5) are used for the potential wires and that the  last five (pins 6-10) are used for the current wires.
+The samples are connected to the Keithley Multimeter through a custom scanning card. This card enables the use of the built-in switching capabilities and it has two rows of pins, a red (positive) and a black (negative). When using this home made card for 4-wire measurements it can be important to know that the first five pins (pins 1-5) are used for the potential wires and that the  last five (pins 6-10) are used for the current wires.
 
 The first potential pins are grouped with the first current pins, e.g. pins 1 and 6 are connected two sample 1 and pins 2 and 7 are connected to sample 2 and so on. See Table \ref{tab:ScanCard} for details about how the samples currently are connected to the scanning card.
  
@@ -210,6 +212,7 @@ The first potential pins are grouped with the first current pins, e.g. pins 1 an
 	\begin{tabular}{l|l|l}
 	\label{tab:ScanCard}
 		\#  & +(Red) & -(Black) \\
+		\hline
 		1  & Superconductor, Potential +	& Superconductor, Potential - \\
 		2  & Semi-conductor, Potential +		& Semi-conductor, Potential - \\
 		3  & Conductor, Potential +			& Conductor, Potential - \\
@@ -226,7 +229,7 @@ The first potential pins are grouped with the first current pins, e.g. pins 1 an
 
 \section{Software}
 
-This section describes shortly how the software work, for a guide on how to operate the software see the laboratory instructions for electrical conductivity. 
+This section describes shortly how the software works. For a guide on how to operate the software see the laboratory instructions for electrical conductivity. 
 
 The software, ResSolidLabV1 (see figure \ref{fig:UI} for a snap shot), is written in Labview and its user interface has a reduced control of the measurement system. For simplicity it can only change the temperature and initiate measurements. All other changes in the measurement system, has to be done outside the user interface. Such as changing the different coefficients in the PID equation that controls the heating element. 
 
@@ -242,7 +245,7 @@ However the bench-multimeter's settings are made automatically by ResSolidLabV1,
 
 JESPER! FYLL I HÄR VILKA SAKER SOM ÄR "HÅRDKODADE" I PROGRAMMET OCH HUR MAN ÄNDRAR PÅ DEM!!!!!!!!!!!!!!
 
-The  bench-multimeter can not truly measure zero resistance even with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero, this introduces a potential problem. Switching place of either the current or resistance cables will change the sign of the measure resistance.
+The  bench-multimeter can not truly measure zero resistance even with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero. This introduces a potential problem. Switching place of either the current or resistance cables will change the sign of the measure resistance.
 
 
 \section{Hardware}
@@ -271,9 +274,10 @@ The Scientific Instruments Inc. 9620-1 Silicon Diode is the controller that sets
 
 \begin{equation}
 u(t)= K_pe(t) + K_i\int_0^t \! e(\tau)\mathrm{d}\tau + K_d\frac{\mathrm{d}e(t)}{\mathrm{d}t}.
+\label{eq:PID}
 \end{equation}
 
-\noindent Here $u(t)$ is the power of the heater and $e(t)$ is the error in temperature compared to the wanted temperature. The coefficients $K_p$, $K_i$ and $K_d$ are constant and larger than zero. They can be set by the user, but since the system is working good enough then there is no reason to tamper with them. 
+\noindent Here $u(t)$ is the power of the heater and $e(t)$ is the error in temperature compared to the wanted temperature. The coefficients $K_p$, $K_i$ and $K_d$ are constant and larger than zero. They can be set by the user, but since the system is working good enough there is no reason to tamper with them. 
 
 \subsubsection{GPIB-Commands and related: Heater}
 

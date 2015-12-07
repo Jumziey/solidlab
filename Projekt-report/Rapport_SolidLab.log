@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.12)  2 DEC 2015 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.12)  7 DEC 2015 14:23
 entering extended mode
 **Rapport_SolidLab.tex
 (Rapport_SolidLab.tex
@@ -758,13 +758,13 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 140.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 142.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 140.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 142.
 
 
 Package Fancyhdr Warning: \headheight is too small (35.0pt): 
@@ -776,9 +776,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.160 
+l.162 
        [1]
-Overfull \hbox (68.40837pt too wide) in paragraph at lines 171--195
+Overfull \hbox (49.15579pt too wide) in paragraph at lines 173--197
 [][] 
  []
 
@@ -795,11 +795,11 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3] <ResSolidLabV1UI.PNG, id=84, 1141.866pt x 564.9105pt>
+[3] <ResSolidLabV1UI.PNG, id=86, 1141.866pt x 564.9105pt>
 File: ResSolidLabV1UI.PNG Graphic file (type png)
 
 <use ResSolidLabV1UI.PNG>
-Package pdftex.def Info: ResSolidLabV1UI.PNG used on input line 236.
+Package pdftex.def Info: ResSolidLabV1UI.PNG used on input line 239.
 (pdftex.def)             Requested size: 390.0pt x 192.94624pt.
 
 
@@ -809,7 +809,7 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-Overfull \hbox (19.37909pt too wide) in paragraph at lines 241--242
+Overfull \hbox (19.37909pt too wide) in paragraph at lines 244--245
 []\OT1/cmr/m/n/12 However the bench-multimeter's set-tings are made au-to-mat-i
 -cally by ResSolid-
  []
@@ -823,9 +823,9 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
 [5 <./ResSolidLabV1UI.PNG>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 269.
+(hyperref)                removing `\\' on input line 272.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
 
 Package Fancyhdr Warning: \headheight is too small (35.0pt): 
  Make it at least 38.8842pt.
@@ -833,22 +833,22 @@ Package Fancyhdr Warning: \headheight is too small (35.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
  (Rapport_SolidLab.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
 Package rerunfilecheck Info: File `Rapport_SolidLab.out' has not changed.
 (rerunfilecheck)             Checksum: F7C39D2DB0F510ABA92D1E73BD8D9015;564.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 314.
  ) 
 Here is how much of TeX's memory you used:
- 10339 strings out of 493673
- 152340 string characters out of 3141526
- 265893 words of memory out of 3000000
- 13482 multiletter control sequences out of 15000+200000
+ 10340 strings out of 493673
+ 152348 string characters out of 3141526
+ 263985 words of memory out of 3000000
+ 13483 multiletter control sequences out of 15000+200000
  13050 words of font info for 50 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 42i,12n,43p,573b,383s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,12n,43p,525b,383s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/
@@ -860,9 +860,9 @@ s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Rapport_SolidLab.pdf (9 pages, 270424 bytes).
+Output written on Rapport_SolidLab.pdf (9 pages, 270711 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
+ 159 PDF objects out of 1000 (max. 8388607)
  33 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
