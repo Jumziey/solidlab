@@ -50,7 +50,7 @@
 %9. Datum för godkännande
 %---------------------------------------------------------
 \title{Project report}
-\author{Tobias Nilsson }
+\author{Tobias Nilsson \\ Jesper Vesterberg}
 \date{} %<-- LEAVE EMPTY! 
 \newcommand{\organisation}[0] {\small Institutionen för Fysik \\ Umeå Universitet}
 \newcommand{\projektnamn}{\small Upgrade: Electrical Conductivity}
@@ -243,31 +243,74 @@ The software, ResSolidLabV1 (see figure \ref{fig:UI} for a snap shot), is writte
 
 However the bench-multimeter's settings are made automatically by ResSolidLabV1, these settings are about how the measurements are performed and the change these settings, the parts of the program needs to be rewritten.
 
-JESPER! FYLL I HÄR VILKA SAKER SOM ÄR "HÅRDKODADE" I PROGRAMMET OCH HUR MAN ÄNDRAR PÅ DEM!!!!!!!!!!!!!!
-
 The  bench-multimeter can not truly measure zero resistance even with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero. This introduces a potential problem. Switching place of either the current or resistance cables will change the sign of the measure resistance.
 
+\section{Doing Proper Measurements}
+In order to get good measurements the older setup had a black box which was used to create a reverse-current measurement of the voltage drop over the samples in the cooling chamber. The voltage drop was measured by the keithley multimeter and was then translated to resistance inside the computer. This could be calculated since known calibration resistance measurments was also done inside the black box. Ontop of this the four wire measurement was made between the black box and the samples but not between the multimeter and the black box.
 
-\section{Hardware}
+First of on the subject of reversal of current. This is made so that all currents created due to thermocoupling (i.e. in the interface of two different metals) is removed. But there can still be offsets due to non-ohmic contacts. This on the other hand does not affect the characteristics of the measurements, which is the only really interessting thing in this laboration. But a different, and perhaps better since it takes away offset due to non-ohmic contacts, is to use offset compensation. Basically you measure the residual voltages after a measurement and remove that offset instead.
 
-\subsection{Keithley 2001 Multimeter}
+By removing the black box and do four wire resistance measurments directly from the multimeter onto the samples we can remove the problems of not having four wire configuration from the multimeter to the black box. The multimeter also have internal functions to do offset compensation which makes the measurments as good if not better, since stuff like not perfect dc voltage in the black box due the nature of AC power will have less effect on the measurement.  
 
-VILKA KOMMANDON FINNS DET, VILKA PORTAR PÅ DET HEMMA GJORDA KORTET HÖR IHOP.
+\section{Hardware Setup}
+\subsection{How Measurements Are Done}
+All measurments are done over the GPIB interface. All these GPIB commands are done with in the background by ConductiveSolidLab. First of it sets the temperature if you click the "set temperature" button and continously poll the temperature controller to see what the current temperature is in the "Current Sample Temperature (K)" window. 
 
-\subsubsection{GPIB-Commands and related: Multimeter}
+The resistivity measurments are more complicated. But basically when you hit the "Measure" button the program stops and speaks with the multimeter. Here the multimeter takes 10 measurements of each samples and the labview program averages this and writes the result to file and displays in the plot windows. 
 
-\paragraph{Current GPIB-address}
+\subsection{Temperature Controller}
+We have the temperature controller hooked up to the heating element in the cooling chamber and a diode for measuring the temperature. Sadly only one of the diodes seem to be functional so only one source is used to find the temperature. The temperature controller is then hooked up to a computer through its GBIB interface.
 
-\paragraph{Change GPIB-address}
+\subsubsection{GPIB commands used}
+Note that all commands in this description list contains a \\r in the end. This is because labview automatically appends a newline (i.e. {\textbackslash}n) when it sends a GPIB command. The temperature controller on the other hand expects a carriage return \emph{and} a newline (i.e. {\textbackslash}r{\textbackslash}n).
+\begin{description}
+\item [T{\textbackslash}r] This command tells the temperature controller to send back the current temperature as a response 
+\item [S00000{\textbackslash}r] This command sets the temperature the temperature controller should try and achive. The temperature is given in five integers and it is goes between the temperature of 0000.0 and 9999.9 Kelvin. All four digits must always be supplied. 
+\end{description}
 
-\paragraph{Set up 4-wire}
+\subsection{Bench Multimeter}
+We have a Keithley 2001 multimeter that does all of the resistance measurements. It is hooked up directly into the three samples and and can be controlled through its GPIB interface. For a complete reference to its GPIB interface you are refered to its operational manual.
 
-\paragraph{Set up number of averages etc. etc.}
+\subsubsection{GPIB measurement}
+The code for making the multimeter do proper measurement is quite substantial. Not because advance calculations has to be made, but the options on the Keithley 2001 multimeter is nothing but daunting when you first look at it. It has to have three layers configured, the initialization layer, ARM layer and Trigger layer before a measurment. Beyond this certain buffer sizes and registers need to be configured correctly in order for a proper measurment to be done that can be read programatically. One also has to configure the multimeter for four wire resistance measurments and offset compensation so one does not have to manually configure the multimeter every time the laboration is to be done, minimizing setup time and uneccessary problems due to a badly configured multimeter. 
 
-\paragraph{Switch channels}
+To fully understand the code one must be familiar with the GPIB interface in general and the Keithley 2001 multimeter operation manual. This can be much, so the code has been written as clearly as possible so that just passing understanding of these things should make the code readable. To understand how the resistance measurements are made it is recommended to take a look at the block diagram of the subvi "keithley3fres". But for reference we will go through the structure of a measurement with a numerated list which explains the thought process between each sample measurment
 
-\paragraph{Do measurement}
+\begin{enumerate}
+\item We reset the all the registers and set the multimeter in a clean state.
+\item We tell the multimeter to measure until the buffer is full and want it to enable the SRQ line when done.
+\item We configure the offset compensation, set the multimeter into the four wire measurement mode and set the resolution to nine digits.
+\item We configure the amount of the measurements to be done and create a buffer that will precisly take all the measurements. Ontop of this we set a delay between measurements.
+\item The information that will be saved into the buffer must be set (so we can avoid unecessary information as which channel we are measuring on etc.).
+\item Channel is set (i.e. what sample to measure).
+\item We must also set how the measurement should be represented in the buffer.
+\item The multimeter is told to do the measurements.
+\item We must then wait for the SRQ line to light up (i.e. until the buffer is full).
+\item Lastly we read the data, take a mean of the measurments done and return it.
+\end{enumerate}
 
+\subsubsection{GPIB commands}
+Here \emph{"AVG MEAS"} is the amount of measurements you want to do an average over, \emph{"DELAY"} is the delay you want between the measurements and \emph{"CHANNEL"} is the integer value of which channel to measure over with channel card in the back of the multimeter. This \emph{"CHANNEL"} value basically corresponds to a sample.
+\begin{description}
+\item [*rst] Set the multimeter into the idle mode.
+\item [stat:pres] Returns the status register to the default state.
+\item [*cls] Clears the status register and error queue. 
+\item [stat:meas:enab 512] Light up the SRQ line when the buffer is full.
+\item [*sre] Enable the SRQ line.
+\item [sens:fres:ocom 1] Enable offset compensation.
+\item [sens:func "fres"] Put the multimeter in four wire resistance measurment mode.
+\item [sense:fres:dig 9] Set the multimeter to have a nine digit resolution in the measurements.
+\item [trac:poin \emph{"AVG MEAS"}] Set the number of measurements to fit in the buffer.
+\item [trac:egr full] Make sure we get a timestamp on the measurements.
+\item [trig:cound \emph{"AVG MEAS"}] Number of times we should trigger a measurment.
+\item [trig:delay \emph{"DELAY"}] Sets the delay between measurements. The values range between 0 and 9999.999 seconds
+\item [form:elem read] Tells the multimetar that we only want the measured data, and not channel info etc.
+\item [rout:clos(@\emph{"CHANNEL"})] What sample to measure.
+\item [trac:feed sense] Make sure it is raw readings that is beeing put into the buffer.
+\item [trac:feed:cont next] Basically contiously fill the next spot in the buffer until full.
+\item [init] Actually do the measurment  we have configured.
+\item [trac:data?] Read the buffer with the data
+\end{description}
 
 \subsection{Heater control: \\ Scientific Instruments Inc. 9620-1 Silicon Diode}
 The Scientific Instruments Inc. 9620-1 Silicon Diode is the controller that sets the heat, as previous stated it governed by the PID equation, which typically looks like this:
@@ -278,21 +321,6 @@ u(t)= K_pe(t) + K_i\int_0^t \! e(\tau)\mathrm{d}\tau + K_d\frac{\mathrm{d}e(t)}{
 \end{equation}
 
 \noindent Here $u(t)$ is the power of the heater and $e(t)$ is the error in temperature compared to the wanted temperature. The coefficients $K_p$, $K_i$ and $K_d$ are constant and larger than zero. They can be set by the user, but since the system is working good enough there is no reason to tamper with them. 
-
-\subsubsection{GPIB-Commands and related: Heater}
-
-\paragraph{Current GPIB-address}
-
-\paragraph{Change GPIB-address}
-
-\paragraph{Temperature}
-
-\paragraph{Set Temperature}
-
-
-
-
-
 %\begin{appendix}
 
 
