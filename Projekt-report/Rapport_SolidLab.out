@@ -1,12 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{The set-up}{}% 2
 \BOOKMARK [1][-]{section.3}{Software}{}% 3
-\BOOKMARK [1][-]{section.4}{Doing Proper Measurements}{}% 4
-\BOOKMARK [1][-]{section.5}{Hardware Setup}{}% 5
-\BOOKMARK [2][-]{subsection.5.1}{How Measurements Are Done}{section.5}% 6
-\BOOKMARK [2][-]{subsection.5.2}{Temperature Controller}{section.5}% 7
-\BOOKMARK [3][-]{subsubsection.5.2.1}{GPIB commands used}{subsection.5.2}% 8
-\BOOKMARK [2][-]{subsection.5.3}{Bench Multimeter}{section.5}% 9
-\BOOKMARK [3][-]{subsubsection.5.3.1}{GPIB measurement}{subsection.5.3}% 10
-\BOOKMARK [3][-]{subsubsection.5.3.2}{GPIB commands}{subsection.5.3}% 11
-\BOOKMARK [2][-]{subsection.5.4}{Heater control: \040Scientific Instruments Inc. 9620-1 Silicon Diode}{section.5}% 12
+\BOOKMARK [2][-]{subsection.3.1}{Installation}{section.3}% 4
+\BOOKMARK [1][-]{section.4}{Doing Proper Measurements}{}% 5
+\BOOKMARK [1][-]{section.5}{Hardware Setup}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{How Measurements Are Done}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{Temperature Controller}{section.5}% 8
+\BOOKMARK [3][-]{subsubsection.5.2.1}{GPIB commands used}{subsection.5.2}% 9
+\BOOKMARK [2][-]{subsection.5.3}{Bench Multimeter}{section.5}% 10
+\BOOKMARK [3][-]{subsubsection.5.3.1}{GPIB measurement}{subsection.5.3}% 11
+\BOOKMARK [3][-]{subsubsection.5.3.2}{GPIB commands}{subsection.5.3}% 12
+\BOOKMARK [1][-]{section.6}{wahahaha}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{Heater control: \040Scientific Instruments Inc. 9620-1 Silicon Diode}{section.6}% 14

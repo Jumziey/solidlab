@@ -235,46 +235,48 @@ The software, ResSolidLabV1 (see figure \ref{fig:UI} for a snap shot), is writte
 
 
 \begin{figure}[H]
-\center
-\includegraphics[width=1\textwidth]{ResSolidLabV1UI}
-\caption{\emph{Snapshot of the ResSolidLabV1's user interface.}}
-\label{fig:UI}
+	\includegraphics[width=1\textwidth]{ResSolidLabV1UI}
+	\caption{\emph{Snapshot of the ResSolidLabV1's user interface.}}
+	\label{fig:UI}
 \end{figure}
 
 However the bench-multimeter's settings are made automatically by ResSolidLabV1, these settings are about how the measurements are performed and the change these settings, the parts of the program needs to be rewritten.
 
 The  bench-multimeter can not truly measure zero resistance even with the 4-wire setup and the measured values are often negative. The solution implemented in the software is to chose the maximum value between the measured resistance and zero. This introduces a potential problem. Switching place of either the current or resistance cables will change the sign of the measure resistance.
 
+\subsection{Installation}
+Description of how the installation is done. Note that the drivers for the GPIB usb interface is included in the installation and that a labview runtime is also included. Thus nothing else but the program itself needs to be installed.
+
 \section{Doing Proper Measurements}
-In order to get good measurements the older setup had a black box which was used to create a reverse-current measurement of the voltage drop over the samples in the cooling chamber. The voltage drop was measured by the keithley multimeter and was then translated to resistance inside the computer. This could be calculated since known calibration resistance measurments was also done inside the black box. Ontop of this the four wire measurement was made between the black box and the samples but not between the multimeter and the black box.
+In order to get good measurements the old setup had a black box which was used to create a reverse-current measurement of the voltage drop over the samples in the cooling chamber. The voltage drop was measured by the keithley multimeter and was then translated to resistance inside the computer. This could be calculated since known calibration resistance measurments was also done inside the black box. Ontop of this the four wire measurement was made between the black box and the samples but not between the multimeter and the black box.
 
-First of on the subject of reversal of current. This is made so that all currents created due to thermocoupling (i.e. in the interface of two different metals) is removed. But there can still be offsets due to non-ohmic contacts. This on the other hand does not affect the characteristics of the measurements, which is the only really interessting thing in this laboration. But a different, and perhaps better since it takes away offset due to non-ohmic contacts, is to use offset compensation. Basically you measure the residual voltages after a measurement and remove that offset instead.
+First of on the subject of reversal of current. This is made so that all currents created due to thermocoupling (i.e. in the interface of two different metals) is removed. But there can still be offsets due to non-ohmic contacts. This on the other hand does not affect the characteristics of the measurements, which is the thing this laboration focus on. A different method, and perhaps better method since it takes away offset due to non-ohmic contacts, is to use offset compensation. Basically you measure the residual voltages after a measurement and remove that offset instead.
 
-By removing the black box and do four wire resistance measurments directly from the multimeter onto the samples we can remove the problems of not having four wire configuration from the multimeter to the black box. The multimeter also have internal functions to do offset compensation which makes the measurments as good if not better, since stuff like not perfect dc voltage in the black box due the nature of AC power will have less effect on the measurement.  
+By removing the black box and make four wire resistance measurments directly from the multimeter onto the samples we remove problems that can occour in between the multimeter and black box. The multimeter also have internal functions to do offset compensation which makes the measurments as good if not better, since stuff like not perfect dc voltage in the black box due the nature of AC power will have less effect on the measurement. It also makes the setup itself allot simpler.  
 
 \section{Hardware Setup}
 \subsection{How Measurements Are Done}
-All measurments are done over the GPIB interface. All these GPIB commands are done with in the background by ConductiveSolidLab. First of it sets the temperature if you click the "set temperature" button and continously poll the temperature controller to see what the current temperature is in the "Current Sample Temperature (K)" window. 
+All measurments are done over the GPIB interface. All GPIB commands required for the measurements are done in the background by the ConductiveSolidLab program. First of it sets the temperature if you click the "set temperature" button and continously poll the temperature controller to see what the current temperature is in the "Current Sample Temperature (K)" window. 
 
-The resistivity measurments are more complicated. But basically when you hit the "Measure" button the program stops and speaks with the multimeter. Here the multimeter takes 10 measurements of each samples and the labview program averages this and writes the result to file and displays in the plot windows. 
+The resistivity measurments are more complicated. But basically when you hit the "Measure" button the program stops and speaks with the multimeter. Here the multimeter takes 10 measurements of each samples and the labview program averages this and writes the result to file and displays it in the plot windows for each sample. 
 
 \subsection{Temperature Controller}
 We have the temperature controller hooked up to the heating element in the cooling chamber and a diode for measuring the temperature. Sadly only one of the diodes seem to be functional so only one source is used to find the temperature. The temperature controller is then hooked up to a computer through its GBIB interface.
 
 \subsubsection{GPIB commands used}
-Note that all commands in this description list contains a \\r in the end. This is because labview automatically appends a newline (i.e. {\textbackslash}n) when it sends a GPIB command. The temperature controller on the other hand expects a carriage return \emph{and} a newline (i.e. {\textbackslash}r{\textbackslash}n).
+Note that all commands in this description list contains a {\textbackslash}r in the end. This is because labview automatically appends a newline (i.e. {\textbackslash}n) when it sends a GPIB command. The temperature controller on the other hand expects a carriage return \emph{and} a newline (i.e. {\textbackslash}r{\textbackslash}n).
 \begin{description}
 \item [T{\textbackslash}r] This command tells the temperature controller to send back the current temperature as a response 
 \item [S00000{\textbackslash}r] This command sets the temperature the temperature controller should try and achive. The temperature is given in five integers and it is goes between the temperature of 0000.0 and 9999.9 Kelvin. All four digits must always be supplied. 
 \end{description}
 
 \subsection{Bench Multimeter}
-We have a Keithley 2001 multimeter that does all of the resistance measurements. It is hooked up directly into the three samples and and can be controlled through its GPIB interface. For a complete reference to its GPIB interface you are refered to its operational manual.
+We have a Keithley 2001 multimeter that does all of the resistance measurements. It is hooked up directly into the three samples and and can be controlled through its GPIB interface. For a complete reference to its GPIB interface you are refered to its operational manual. We will go through the commands made to make a measurement in this laboration setup.
 
 \subsubsection{GPIB measurement}
-The code for making the multimeter do proper measurement is quite substantial. Not because advance calculations has to be made, but the options on the Keithley 2001 multimeter is nothing but daunting when you first look at it. It has to have three layers configured, the initialization layer, ARM layer and Trigger layer before a measurment. Beyond this certain buffer sizes and registers need to be configured correctly in order for a proper measurment to be done that can be read programatically. One also has to configure the multimeter for four wire resistance measurments and offset compensation so one does not have to manually configure the multimeter every time the laboration is to be done, minimizing setup time and uneccessary problems due to a badly configured multimeter. 
+The code for making the multimeter do proper measurement is quite substantial. Not because advance calculations has to be made, but the options on the Keithley 2001 multimeter is nothing but daunting when you first look at it. It has to have three layers configured, the initialization layer, ARM layer and Trigger layer before a measurment. Beyond this certain buffer sizes and registers need to be configured correctly in order for a proper measurment to be done that can be read programatically. It is also far from obvious what values to set what register to. One also has to configure the multimeter for four wire resistance measurments and offset compensation so one does not have to manually configure the multimeter every time the laboration is to be done, minimizing setup time and uneccessary problems due to a badly configured multimeter. 
 
-To fully understand the code one must be familiar with the GPIB interface in general and the Keithley 2001 multimeter operation manual. This can be much, so the code has been written as clearly as possible so that just passing understanding of these things should make the code readable. To understand how the resistance measurements are made it is recommended to take a look at the block diagram of the subvi "keithley3fres". But for reference we will go through the structure of a measurement with a numerated list which explains the thought process between each sample measurment
+To fully understand the code one must be familiar with the GPIB interface in general and the Keithley 2001 multimeter operation manual. This can be much, so the code has been written as clearly as possible so that just passing understanding of these things should make the code readable. To understand how the resistance measurements are made it is recommended to take a look at the block diagram of the subvi "keithley3fres". But for reference we will go through the structure of a measurement with a numerated list which explains the thought process between each sample measurment, this enumerated list is best read together with the block diagram of the subvi "keithley3fres".
 
 \begin{enumerate}
 \item We reset the all the registers and set the multimeter in a clean state.
@@ -311,6 +313,8 @@ Here \emph{"AVG MEAS"} is the amount of measurements you want to do an average o
 \item [init] Actually do the measurment  we have configured.
 \item [trac:data?] Read the buffer with the data
 \end{description}
+
+\section{wahahaha}
 
 \subsection{Heater control: \\ Scientific Instruments Inc. 9620-1 Silicon Diode}
 The Scientific Instruments Inc. 9620-1 Silicon Diode is the controller that sets the heat, as previous stated it governed by the PID equation, which typically looks like this:
