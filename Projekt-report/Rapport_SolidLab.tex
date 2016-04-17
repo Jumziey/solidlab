@@ -160,7 +160,7 @@ The materials are placed in the cooling chamber and the two vacuum pumps reduces
 
 The samples are continuously cooled by the equipment to $\approx 10$ $K$ if no additional heat is added. Thus to change the temperature additional heat is added to the system by an external heater. This heater is controlled by the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode}. Which in turn can be controlled by a computer through an GPIB-interface and its front panel. 
 
-The controller determines the heating with the aid of the PID equation, consisting of a \textbf{P}roportional, an \textbf{I}ntegral and a \textbf{D}ifferential term. To improve the performance and responsiveness of the cryogenic equipment in various temperature ranges, the coefficients for these terms can be changed by the user. For more information see equation \eqref{eq:PID} and the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
+The controller determines the heating with the aid of the PID equation, consisting of a \textbf{P}roportional, an \textbf{I}ntegral and a \textbf{D}ifferential term. To improve the performance and responsiveness of the cryogenic equipment in various temperature ranges, the coefficients for these terms can be changed by the user. For more information see the \emph{Scientific Instruments Inc. 9620-1 Silicon Diode manual}.
 
 To determine the resistivity of the samples, each sample is connected to a 4 sense wire system. These sense wires are connected to a Keithley 2001 Multimeter through a switching card at the back of the multimeter. The multimeter is also equipped with a GPIB-interface, enabling computer controlled measurements. 
 
@@ -314,17 +314,17 @@ Here \emph{"AVG MEAS"} is the amount of measurements you want to do an average o
 \item [trac:data?] Read the buffer with the data
 \end{description}
 
-\section{wahahaha}
-
-\subsection{Heater control: \\ Scientific Instruments Inc. 9620-1 Silicon Diode}
-The Scientific Instruments Inc. 9620-1 Silicon Diode is the controller that sets the heat, as previous stated it governed by the PID equation, which typically looks like this:
-
-\begin{equation}
-u(t)= K_pe(t) + K_i\int_0^t \! e(\tau)\mathrm{d}\tau + K_d\frac{\mathrm{d}e(t)}{\mathrm{d}t}.
-\label{eq:PID}
-\end{equation}
-
-\noindent Here $u(t)$ is the power of the heater and $e(t)$ is the error in temperature compared to the wanted temperature. The coefficients $K_p$, $K_i$ and $K_d$ are constant and larger than zero. They can be set by the user, but since the system is working good enough there is no reason to tamper with them. 
+%\section{wahahaha}
+%
+%\subsection{Heater control: \\ Scientific Instruments Inc. 9620-1 Silicon Diode}
+%The Scientific Instruments Inc. 9620-1 Silicon Diode is the controller that sets the heat, as previous stated it governed by the PID equation, which typically looks like this:
+%
+%\begin{equation}
+%u(t)= K_pe(t) + K_i\int_0^t \! e(\tau)\mathrm{d}\tau + K_d\frac{\mathrm{d}e(t)}{\mathrm{d}t}.
+%\label{eq:PID}
+%\end{equation}
+%
+%\noindent Here $u(t)$ is the power of the heater and $e(t)$ is the error in temperature compared to the wanted temperature. The coefficients $K_p$, $K_i$ and $K_d$ are constant and larger than zero. They can be set by the user, but since the system is working good enough there is no reason to tamper with them. 
 %\begin{appendix}
 
 
